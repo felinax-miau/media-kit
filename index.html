@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mídia Kit Felinax</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;600&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
         body {
             font-family: 'Montserrat', sans-serif;
             background: linear-gradient(135deg, #1a0d1f 0%, #2d1b3d 50%, #1a0d1f 100%);
             color: #fff;
             overflow-x: hidden;
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -39,7 +35,6 @@
             background: radial-gradient(ellipse at center, rgba(219, 112, 219, 0.15) 0%, transparent 70%);
             overflow: hidden;
         }
-        
         .hero::before {
             content: '';
             position: fixed;
@@ -57,7 +52,6 @@
             z-index: 0;
             pointer-events: none;
         }
-        
         @keyframes floatCat {
             0%, 100% { 
                 transform: translate(-50%, -50%) translateY(0) scale(1); 
@@ -68,19 +62,16 @@
                 opacity: 0.2;
             }
         }
-        
         @keyframes float {
             0% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
             100% { transform: translateY(0); }
         }
-        
         .logo-container {
             margin-bottom: 40px;
             position: relative;
             z-index: 2;
         }
-        
         .logo-container img {
             max-width: 250px;
             width: 100%;
@@ -90,12 +81,10 @@
             position: relative;
             z-index: 2;
         }
-        
         @keyframes pulse {
             0%, 100% { filter: drop-shadow(0 0 30px rgba(219, 112, 219, 0.6)); }
             50% { filter: drop-shadow(0 0 50px rgba(219, 112, 219, 0.9)); }
         }
-        
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3.5rem;
@@ -111,7 +100,6 @@
             text-shadow: 0 0 30px rgba(219, 112, 219, 0.8), 0 0 60px rgba(219, 112, 219, 0.5);
             filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
         }
-        
         .hero-subtitle {
             font-size: 1.2rem;
             font-weight: 400;
@@ -123,13 +111,11 @@
             z-index: 2;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(219, 112, 219, 0.6);
         }
-        
         /* Section Styles */
         section {
             padding: 100px 20px;
             position: relative;
         }
-        
         .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem;
@@ -141,7 +127,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
         .section-subtitle {
             text-align: center;
             color: #c9a9c9;
@@ -151,7 +136,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
         /* Cards */
         .cards-grid {
             display: grid;
@@ -159,7 +143,6 @@
             gap: 30px;
             margin-top: 50px;
         }
-        
         .card {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -170,7 +153,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .card::before {
             content: '';
             position: absolute;
@@ -182,36 +164,30 @@
             transform: scaleX(0);
             transition: transform 0.4s ease;
         }
-        
         .card:hover {
             transform: translateY(-10px);
             border-color: rgba(219, 112, 219, 0.6);
             box-shadow: 0 20px 60px rgba(219, 112, 219, 0.3);
         }
-        
         .card:hover::before {
             transform: scaleX(1);
         }
-        
         .card-icon {
             font-size: 3rem;
             margin-bottom: 20px;
             display: block;
         }
-        
         .card-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.8rem;
             margin-bottom: 15px;
             color: #db70db;
         }
-        
         .card-text {
             color: #c9a9c9;
             line-height: 1.6;
             font-size: 0.95rem;
         }
-        
         /* Benefits List */
         .benefits-list {
             display: grid;
@@ -219,19 +195,16 @@
             gap: 25px;
             margin-top: 50px;
         }
-        
         @media (max-width: 968px) {
             .benefits-list {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
-        
         @media (max-width: 640px) {
             .benefits-list {
                 grid-template-columns: 1fr;
             }
         }
-        
         .benefit-item {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
@@ -241,32 +214,27 @@
             border-left: 4px solid #db70db;
             transition: all 0.3s ease;
         }
-        
         .benefit-item:hover {
             background: rgba(219, 112, 219, 0.1);
             transform: translateX(10px);
             border-color: rgba(219, 112, 219, 0.6);
         }
-        
         .benefit-icon {
             font-size: 1.8rem;
             margin-bottom: 12px;
             display: block;
         }
-        
         .benefit-title {
             font-weight: 600;
             margin-bottom: 8px;
             color: #db70db;
             font-size: 1rem;
         }
-        
         .benefit-text {
             color: #c9a9c9;
             font-size: 0.85rem;
             line-height: 1.4;
         }
-        
         /* CTA Section */
         .cta-section {
             background: rgba(255, 255, 255, 0.05);
@@ -277,14 +245,12 @@
             margin: 80px 0;
             border: 2px solid rgba(219, 112, 219, 0.4);
         }
-        
         .cta-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: #fff;
         }
-        
         .cta-text {
             font-size: 1.1rem;
             color: #e0c9e0;
@@ -293,14 +259,13 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
         .cta-buttons {
             display: flex;
+            flex-direction: row;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
         .btn {
             padding: 18px 45px;
             border-radius: 50px;
@@ -312,19 +277,16 @@
             cursor: pointer;
             display: inline-block;
         }
-        
         .btn-primary {
             background: linear-gradient(135deg, #db70db, #ff69b4);
             color: #fff;
             box-shadow: 0 10px 30px rgba(219, 112, 219, 0.7);
             text-shadow: 0 0 8px rgba(255, 105, 180, 0.8);
         }
-        
         .btn-primary:hover {
             box-shadow: 0 15px 50px rgba(219, 112, 219, 1);
             transform: translateY(-3px);
         }
-        
         .btn-secondary {
             background: transparent;
             color: #db70db;
@@ -332,12 +294,10 @@
             box-shadow: none;
             text-shadow: none;
         }
-        
         .btn-secondary:hover {
             background: rgba(219, 112, 219, 0.1);
             transform: translateY(-3px);
         }
-        
         /* Stats */
         .stats-grid {
             display: grid;
@@ -345,7 +305,6 @@
             gap: 30px;
             margin-top: 50px;
         }
-        
         .stat-box {
             text-align: center;
             padding: 30px;
@@ -354,7 +313,6 @@
             border-radius: 15px;
             border: 1px solid rgba(219, 112, 219, 0.3);
         }
-        
         .stat-number {
             font-family: 'Cormorant Garamond', serif;
             font-size: 3rem;
@@ -362,12 +320,10 @@
             color: #db70db;
             margin-bottom: 10px;
         }
-        
         .stat-label {
             color: #c9a9c9;
             font-size: 0.95rem;
         }
-        
         /* Footer */
         .footer {
             text-align: center;
@@ -375,61 +331,49 @@
             background: rgba(0, 0, 0, 0.3);
             margin-top: 100px;
         }
-        
         .footer-logo {
             max-width: 200px;
             margin-bottom: 30px;
             opacity: 0.8;
         }
-        
         .footer-text {
             color: #c9a9c9;
             margin-bottom: 20px;
         }
-        
         .footer-link {
             color: #db70db;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
         }
-        
         .footer-link:hover {
             color: #ff69b4;
         }
-        
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.5rem;
             }
-            
             .section-title {
                 font-size: 2rem;
             }
-            
             .cards-grid {
                 grid-template-columns: 1fr;
             }
-            
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
             .btn {
                 width: 100%;
                 max-width: 300px;
             }
-            
             .logo-container {
                 margin-bottom: 30px;
             }
-            
             .logo-container img {
                 max-width: 180px !important;
                 display: block;
             }
-            
             .hero::before {
                 width: 350px;
                 height: 350px;
@@ -443,7 +387,7 @@
     <section class="hero">
         <div class="container">
             <div class="logo-container">
-                <img src="https://felinax.com.br/cdn/shop/files/Design_sem_nome_-_2025-07-25T002942.708.png?v=1753414194&width=450" alt="Felinax Logo">
+                <img src="https://felinax.com.br/cdn/shop/files/Design_sem_nome_-_2025-07-25T002942.708.png?v=1753414194&width=450" alt="Felinax Logo" />
             </div>
             <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #ffffff; margin-bottom: 30px; font-style: italic; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(219, 112, 219, 0.7); position: relative; z-index: 2;">
                 "A Intensidade e o Prazer de 7 vidas em uma só!"
@@ -458,20 +402,17 @@
         <div class="container">
             <h2 class="section-title">Sobre a Felinax</h2>
             <p class="section-subtitle">Onde a elegância felina encontra o desejo humano</p>
-            
             <div class="cards-grid">
                 <div class="card">
                     <span class="card-icon">🐆</span>
                     <h3 class="card-title">Nossa Essência</h3>
                     <p class="card-text">Inspirados na sensualidade, mistério e elegância dos felinos, a Felinax oferece uma experiência única de prazer e sofisticação.</p>
                 </div>
-                
                 <div class="card">
                     <span class="card-icon">✨</span>
                     <h3 class="card-title">Qualidade Premium</h3>
                     <p class="card-text">Produtos cuidadosamente selecionados para proporcionar experiências memoráveis, com foco em design, conforto e funcionalidade.</p>
                 </div>
-                
                 <div class="card">
                     <span class="card-icon">🎯</span>
                     <h3 class="card-title">Público Engajado</h3>
@@ -486,42 +427,35 @@
         <div class="container">
             <h2 class="section-title">Modelo de Parceria</h2>
             <p class="section-subtitle">Uma proposta vantajosa para ambos os lados</p>
-            
             <div class="stats-grid">
                 <div class="stat-box">
                     <div class="stat-number">5-10%</div>
                     <div class="stat-label">Desconto Exclusivo para Seguidores</div>
                 </div>
-                
                 <div class="stat-box">
                     <div class="stat-number">5-10%</div>
                     <div class="stat-label">Comissão por Venda Realizada</div>
                 </div>
-                
                 <div class="stat-box">
                     <div class="stat-number">100%</div>
                     <div class="stat-label">Suporte e Materiais de Divulgação</div>
                 </div>
-                
                 <div class="stat-box">
                     <div class="stat-number">∞</div>
                     <div class="stat-label">Potencial de Ganhos Mensais</div>
                 </div>
             </div>
-            
             <div class="cards-grid" style="margin-top: 80px;">
                 <div class="card">
                     <span class="card-icon">💎</span>
                     <h3 class="card-title">Como Funciona</h3>
                     <p class="card-text">Você recebe um cupom exclusivo com seu nome. Seus seguidores ganham 5-10% de desconto nas compras, e você recebe o mesmo percentual de comissão sobre cada venda realizada.</p>
                 </div>
-                
                 <div class="card">
                     <span class="card-icon">📈</span>
                     <h3 class="card-title">Tracking Transparente</h3>
                     <p class="card-text">Acesso a dashboard exclusivo onde você acompanha em tempo real todas as vendas, comissões acumuladas e performance do seu cupom.</p>
                 </div>
-                
                 <div class="card">
                     <span class="card-icon">🎁</span>
                     <h3 class="card-title">Benefícios Extras</h3>
@@ -536,38 +470,32 @@
         <div class="container">
             <h2 class="section-title">Vantagens da Parceria</h2>
             <p class="section-subtitle">Por que escolher a Felinax como parceira</p>
-            
             <div class="benefits-list">
                 <div class="benefit-item">
                     <span class="benefit-icon">💰</span>
                     <h4 class="benefit-title">Renda Recorrente</h4>
                     <p class="benefit-text">Ganhe comissão em todas as vendas realizadas com seu cupom, criando uma fonte de renda passiva.</p>
                 </div>
-                
                 <div class="benefit-item">
                     <span class="benefit-icon">🎯</span>
                     <h4 class="benefit-title">Por que escolher a Felinax</h4>
                     <p class="benefit-text">Associe-se a uma marca premium com identidade visual marcante e posicionamento único no mercado.</p>
                 </div>
-                
                 <div class="benefit-item">
                     <span class="benefit-icon">🚀</span>
                     <h4 class="benefit-title">Facilidade de Divulgação</h4>
                     <p class="benefit-text">Receba materiais prontos, banners, stories e conteúdos otimizados para suas redes sociais.</p>
                 </div>
-                
                 <div class="benefit-item">
                     <span class="benefit-icon">🤝</span>
                     <h4 class="benefit-title">Suporte Dedicado</h4>
                     <p class="benefit-text">Equipe sempre disponível para tirar dúvidas e auxiliar nas suas estratégias de divulgação.</p>
                 </div>
-                
                 <div class="benefit-item">
                     <span class="benefit-icon">📦</span>
                     <h4 class="benefit-title">Produtos de Qualidade</h4>
                     <p class="benefit-text">Catálogo diversificado com produtos testados e aprovados, garantindo satisfação do cliente.</p>
                 </div>
-                
                 <div class="benefit-item">
                     <span class="benefit-icon">🎯</span>
                     <h4 class="benefit-title">Público Qualificado</h4>
@@ -583,9 +511,9 @@
             <div class="cta-section">
                 <h2 class="cta-title">Pronto para Começar?</h2>
                 <p class="cta-text">Junte-se à Felinax e transforme sua influência em uma parceria lucrativa e sofisticada. Vamos explorar juntos o universo da sensualidade felina.</p>
-                <div class="cta-buttons">
-                    <a href="mailto:felinax.loja@gmail.com?subject=Proposta de Parceria - Influenciador" class="btn btn-secondary">Conhecer Nossos Produtos</a>
+                <div class="cta-buttons" style="flex-direction: row; justify-content: center; gap: 20px;">
                     <a href="https://wa.me/5511950283526" target="_blank" class="btn btn-primary">Solicitar Parceria</a>
+                    <a href="https://felinax.com.br" class="btn btn-secondary">Conhecer Nossos Produtos</a>
                 </div>
             </div>
         </div>
