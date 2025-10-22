@@ -1,34 +1,600 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teste Logo Felinax Mobile</title>
-<style>
-    body {
-        background: #1a0d1f;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-    .logo-container {
-        border: 2px solid red; /* Para ver a área da imagem */
-        max-width: 250px;
-        width: 100%;
-    }
-    .logo-container img {
-        max-width: 100%;
-        display: block;
-        height: auto;
-        filter: drop-shadow(0 0 30px rgba(219, 112, 219, 0.6));
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídia Kit Felinax</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #1a0d1f 0%, #2d1b3d 50%, #1a0d1f 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 60px 20px;
+            background: radial-gradient(ellipse at center, rgba(219, 112, 219, 0.15) 0%, transparent 70%);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background-image: url('https://i.postimg.cc/Vkf2gyJh/535b789f-8c5b-49b1-a7fa-6f3c93317e43-removebg-preview.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.05;
+            animation: floatCat 15s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes floatCat {
+            0%, 100% { 
+                transform: translate(-50%, -50%) translateY(0) scale(1); 
+                opacity: 0.15;
+            }
+            50% { 
+                transform: translate(-50%, -50%) translateY(-20px) scale(1.05); 
+                opacity: 0.2;
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .logo-container {
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container img {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(219, 112, 219, 0.6));
+            animation: pulse 3s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(219, 112, 219, 0.6)); }
+            50% { filter: drop-shadow(0 0 50px rgba(219, 112, 219, 0.9)); }
+        }
+        
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #db70db, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 30px rgba(219, 112, 219, 0.8), 0 0 60px rgba(219, 112, 219, 0.5);
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #ffffff;
+            margin-bottom: 50px;
+            max-width: 600px;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(219, 112, 219, 0.6);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #db70db, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #c9a9c9;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(219, 112, 219, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #db70db, #ff69b4);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(219, 112, 219, 0.6);
+            box-shadow: 0 20px 60px rgba(219, 112, 219, 0.3);
+        }
+        
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .card-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #db70db;
+        }
+        
+        .card-text {
+            color: #c9a9c9;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        /* Benefits List */
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 968px) {
+            .benefits-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .benefit-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(219, 112, 219, 0.3);
+            border-left: 4px solid #db70db;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover {
+            background: rgba(219, 112, 219, 0.1);
+            transform: translateX(10px);
+            border-color: rgba(219, 112, 219, 0.6);
+        }
+        
+        .benefit-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .benefit-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #db70db;
+            font-size: 1rem;
+        }
+        
+        .benefit-text {
+            color: #c9a9c9;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 80px 40px;
+            text-align: center;
+            margin: 80px 0;
+            border: 2px solid rgba(219, 112, 219, 0.4);
+        }
+        
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            color: #e0c9e0;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #db70db, #ff69b4);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(219, 112, 219, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(219, 112, 219, 0.6);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #db70db;
+            border: 2px solid #db70db;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(219, 112, 219, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(219, 112, 219, 0.3);
+        }
+        
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #db70db;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #c9a9c9;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 100px;
+        }
+        
+        .footer-logo {
+            max-width: 200px;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .footer-text {
+            color: #c9a9c9;
+            margin-bottom: 20px;
+        }
+        
+        .footer-link {
+            color: #db70db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: #ff69b4;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .logo-container img {
+                max-width: 200px;
+            }
+            
+            .hero::before {
+                width: 400px;
+                height: 400px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="logo-container">
-        <img src="https://felinax.com.br/cdn/shop/files/Design_sem_nome_-_2025-07-25T002942.708.png?v=1753414194&width=450" alt="Felinax Logo" />
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo-container">
+                <img src="https://felinax.com.br/cdn/shop/files/Design_sem_nome_-_2025-07-25T002942.708.png?v=1753414194&width=450" alt="Felinax Logo">
+            </div>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #ffffff; margin-bottom: 30px; font-style: italic; letter-spacing: 1px; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9), 0 0 20px rgba(219, 112, 219, 0.7); position: relative; z-index: 2;">
+                "A Intensidade e o Prazer de 7 vidas em uma só!"
+            </p>
+            <h1 class="hero-title">Parceria de Influência</h1>
+            <p class="hero-subtitle">Explore a sensualidade felina e construa uma parceria lucrativa com uma das marcas mais sofisticadas do mercado adulto brasileiro</p>
+        </div>
+    </section>
+
+    <!-- Sobre a Marca -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Sobre a Felinax</h2>
+            <p class="section-subtitle">Onde a elegância felina encontra o desejo humano</p>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <span class="card-icon">🐆</span>
+                    <h3 class="card-title">Nossa Essência</h3>
+                    <p class="card-text">Inspirados na sensualidade, mistério e elegância dos felinos, a Felinax oferece uma experiência única de prazer e sofisticação.</p>
+                </div>
+                
+                <div class="card">
+                    <span class="card-icon">✨</span>
+                    <h3 class="card-title">Qualidade Premium</h3>
+                    <p class="card-text">Produtos cuidadosamente selecionados para proporcionar experiências memoráveis, com foco em design, conforto e funcionalidade.</p>
+                </div>
+                
+                <div class="card">
+                    <span class="card-icon">🎯</span>
+                    <h3 class="card-title">Público Engajado</h3>
+                    <p class="card-text">Uma comunidade apaixonada por explorar a própria sensualidade de forma consciente, elegante e sem tabus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proposta de Parceria -->
+    <section style="background: rgba(0, 0, 0, 0.2);">
+        <div class="container">
+            <h2 class="section-title">Modelo de Parceria</h2>
+            <p class="section-subtitle">Uma proposta vantajosa para ambos os lados</p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">5-10%</div>
+                    <div class="stat-label">Desconto Exclusivo para Seguidores</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">5-10%</div>
+                    <div class="stat-label">Comissão por Venda Realizada</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Suporte e Materiais de Divulgação</div>
+                </div>
+                
+                <div class="stat-box">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Potencial de Ganhos Mensais</div>
+                </div>
+            </div>
+            
+            <div class="cards-grid" style="margin-top: 80px;">
+                <div class="card">
+                    <span class="card-icon">💎</span>
+                    <h3 class="card-title">Como Funciona</h3>
+                    <p class="card-text">Você recebe um cupom exclusivo com seu nome. Seus seguidores ganham 5-10% de desconto nas compras, e você recebe o mesmo percentual de comissão sobre cada venda realizada.</p>
+                </div>
+                
+                <div class="card">
+                    <span class="card-icon">📈</span>
+                    <h3 class="card-title">Tracking Transparente</h3>
+                    <p class="card-text">Acesso a dashboard exclusivo onde você acompanha em tempo real todas as vendas, comissões acumuladas e performance do seu cupom.</p>
+                </div>
+                
+                <div class="card">
+                    <span class="card-icon">🎁</span>
+                    <h3 class="card-title">Benefícios Extras</h3>
+                    <p class="card-text">Acesso antecipado a lançamentos, produtos para review, materiais de divulgação personalizados e suporte dedicado da nossa equipe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vantagens -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Vantagens da Parceria</h2>
+            <p class="section-subtitle">Por que escolher a Felinax como parceira</p>
+            
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-icon">💰</span>
+                    <h4 class="benefit-title">Renda Recorrente</h4>
+                    <p class="benefit-text">Ganhe comissão em todas as vendas realizadas com seu cupom, criando uma fonte de renda passiva.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <h4 class="benefit-title">Por que escolher a Felinax</h4>
+                    <p class="benefit-text">Associe-se a uma marca premium com identidade visual marcante e posicionamento único no mercado.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🚀</span>
+                    <h4 class="benefit-title">Facilidade de Divulgação</h4>
+                    <p class="benefit-text">Receba materiais prontos, banners, stories e conteúdos otimizados para suas redes sociais.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🤝</span>
+                    <h4 class="benefit-title">Suporte Dedicado</h4>
+                    <p class="benefit-text">Equipe sempre disponível para tirar dúvidas e auxiliar nas suas estratégias de divulgação.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">📦</span>
+                    <h4 class="benefit-title">Produtos de Qualidade</h4>
+                    <p class="benefit-text">Catálogo diversificado com produtos testados e aprovados, garantindo satisfação do cliente.</p>
+                </div>
+                
+                <div class="benefit-item">
+                    <span class="benefit-icon">🎯</span>
+                    <h4 class="benefit-title">Público Qualificado</h4>
+                    <p class="benefit-text">Alta taxa de conversão com público interessado em produtos de qualidade e experiências premium.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+        <div class="container">
+            <div class="cta-section">
+                <h2 class="cta-title">Pronto para Começar?</h2>
+                <p class="cta-text">Junte-se à Felinax e transforme sua influência em uma parceria lucrativa e sofisticada. Vamos explorar juntos o universo da sensualidade felina.</p>
+                <div class="cta-buttons">
+                    <a href="https://felinax.com.br" class="btn btn-primary" target="_blank">Conhecer Nossos Produtos</a>
+                    <a href="mailto:felinax.loja@gmail.com?subject=Proposta de Parceria - Influenciador" class="btn btn-secondary">Solicitar Parceria</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Explore a sensualidade felina</p>
+            <p class="footer-text">
+                <a href="https://felinax.com.br" class="footer-link" target="_blank">felinax.com.br</a> | 
+                <a href="mailto:felinax.loja@gmail.com" class="footer-link">felinax.loja@gmail.com</a> | 
+                <a href="https://wa.me/5511950283526" class="footer-link" target="_blank">(11) 95028-3526</a>
+            </p>
+            <p class="footer-text" style="font-size: 0.85rem; margin-top: 30px; opacity: 0.7;">
+                © 2025 Felinax. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
